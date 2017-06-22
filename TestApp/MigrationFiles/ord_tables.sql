@@ -3,44 +3,44 @@
 --------------------------------------------------------------------------------
 ------------- Typy zamówienia
 --------------------------------------------------------------------------------
-if exists(select 1 from sysobjects where xtype='U' and name='ps_b2b_ord_orderType')
-	drop table ps_b2b_ord_orderType
+if exists(select 1 from sysobjects where xtype='U' and name='sakrut_test_ord_orderType')
+	drop table sakrut_test_ord_orderType
 go
-create table ps_b2b_ord_orderType
+create table sakrut_test_ord_orderType
 (
-	id int identity constraint ps_b2b_ord_orderType_index1 primary key,
+	id int identity constraint sakrut_test_ord_orderType_index1 primary key,
 	name nvarchar(255),	
 	isActive bit not null
 )
 go
---grant select,insert,update,delete on ps_b2b_ord_orderType to ps_b2b_role
+--grant select,insert,update,delete on sakrut_test_ord_orderType to sakrut_test_role
 go
 
 --------------------------------------------------------------------------------
 ------------- Status zamowienia
 --------------------------------------------------------------------------------
-if exists(select 1 from sysobjects where xtype='U' and name='ps_b2b_ord_orderStatus')
-	drop table ps_b2b_ord_orderStatus
+if exists(select 1 from sysobjects where xtype='U' and name='sakrut_test_ord_orderStatus')
+	drop table sakrut_test_ord_orderStatus
 go
-create table ps_b2b_ord_orderStatus
+create table sakrut_test_ord_orderStatus
 (
-	id int constraint ps_b2b_ord_orderStatus_index1 primary key,
+	id int constraint sakrut_test_ord_orderStatus_index1 primary key,
 	name nvarchar(255),	
 	isActive bit not null
 )
 go
---grant select,insert,update,delete on ps_b2b_ord_orderStatus to ps_b2b_role
+--grant select,insert,update,delete on sakrut_test_ord_orderStatus to sakrut_test_role
 go
 
 
 --------------------------------------------------------------------------------
 ------------- Order zamówienie
 --------------------------------------------------------------------------------
-if exists(select 1 from sysobjects where xtype='U' and name='ps_b2b_ord_order')
-	drop table ps_b2b_ord_order
+if exists(select 1 from sysobjects where xtype='U' and name='sakrut_test_ord_order')
+	drop table sakrut_test_ord_order
 go
-CREATE TABLE [dbo].[ps_b2b_ord_order](
-	[id] [int] identity constraint ps_b2b_ord_order_index1 primary key,
+CREATE TABLE [dbo].[sakrut_test_ord_order](
+	[id] [int] identity constraint sakrut_test_ord_order_index1 primary key,
 	[offerId] [int] NOT NULL,
 	[statusId] [int]  NOT NULL,
 	[typeId] [int]  NOT NULL,
@@ -55,17 +55,17 @@ CREATE TABLE [dbo].[ps_b2b_ord_order](
 
 GO
 go
---grant select,insert,update,delete on ps_b2b_ord_order to ps_b2b_role
+--grant select,insert,update,delete on sakrut_test_ord_order to sakrut_test_role
 go
 
 --------------------------------------------------------------------------------
 ------------- Order Załaczniki oferty
 --------------------------------------------------------------------------------
-if exists(select 1 from sysobjects where xtype='U' and name='ps_b2b_ord_orderAttachment')
-	drop table ps_b2b_ord_orderAttachment
+if exists(select 1 from sysobjects where xtype='U' and name='sakrut_test_ord_orderAttachment')
+	drop table sakrut_test_ord_orderAttachment
 go
-CREATE TABLE [dbo].[ps_b2b_ord_orderAttachment](
-	[id] [int] identity constraint ps_b2b_ord_orderAttachment_index1 primary key,
+CREATE TABLE [dbo].[sakrut_test_ord_orderAttachment](
+	[id] [int] identity constraint sakrut_test_ord_orderAttachment_index1 primary key,
 	[orderId] [int] NOT NULL,
 	fileName nvarchar(255),
 	fileType nvarchar(100),
@@ -76,7 +76,7 @@ CREATE TABLE [dbo].[ps_b2b_ord_orderAttachment](
 
 GO
 go
---grant select,insert,update,delete on ps_b2b_ord_orderAttachment to ps_b2b_role
+--grant select,insert,update,delete on sakrut_test_ord_orderAttachment to sakrut_test_role
 go
 
 
@@ -84,15 +84,15 @@ go
 --------------------------------------------------------------------------------
 ------------- Order Załaczniki oferty
 --------------------------------------------------------------------------------
-if exists(select 1 from sysobjects where xtype='U' and name='ps_b2b_ord_orderAttachmentContent')
-	drop table ps_b2b_ord_orderAttachmentContent
+if exists(select 1 from sysobjects where xtype='U' and name='sakrut_test_ord_orderAttachmentContent')
+	drop table sakrut_test_ord_orderAttachmentContent
 go
-CREATE TABLE [dbo].[ps_b2b_ord_orderAttachmentContent](
+CREATE TABLE [dbo].[sakrut_test_ord_orderAttachmentContent](
 	[OrderAttachmentId] [int] Primary key,
 	[Content] [varbinary](max) NOT NULL,
  )
 
 GO
 go
---grant select,insert,update,delete on ps_b2b_ord_orderAttachmentContent to ps_b2b_role
+--grant select,insert,update,delete on sakrut_test_ord_orderAttachmentContent to sakrut_test_role
 go

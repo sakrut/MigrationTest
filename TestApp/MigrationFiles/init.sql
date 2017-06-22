@@ -1,29 +1,29 @@
 use master
 
-if not exists (select 1 from sys.databases where name = 'PS_B2B')	
-	create database PS_B2B
+if not exists (select 1 from sys.databases where name = 'sakrut_test')	
+	create database sakrut_test
 go
 
 -- once per server
 -------------------
 
---exec sp_droplogin 'ps_b2b_login'
-if not exists (select 1 from sys.sql_logins where name = 'ps_b2b_login')
-  exec sp_addlogin 'ps_b2b_login', 'ps_b2b_Pa$$wd!'
+--exec sp_droplogin 'sakrut_test_login'
+if not exists (select 1 from sys.sql_logins where name = 'sakrut_test_login')
+  exec sp_addlogin 'sakrut_test_login', 'sakrut_test_Pa$$wd!'
 go
 
 -- once per server db
 ----------------------
-use PS_B2B
+use sakrut_test
 go
 
---exec sp_droprolemember 'ps_b2b_role', 'ps_b2b_login'
---exec sp_droprole 'ps_b2b_role'
---exec sp_revokedbaccess 'ps_b2b_login'
-exec sp_grantdbaccess 'ps_b2b_login'
+--exec sp_droprolemember 'sakrut_test_role', 'sakrut_test_login'
+--exec sp_droprole 'sakrut_test_role'
+--exec sp_revokedbaccess 'sakrut_test_login'
+exec sp_grantdbaccess 'sakrut_test_login'
 
-exec sp_addrole 'ps_b2b_role'
+exec sp_addrole 'sakrut_test_role'
 
-exec sp_addrolemember 'ps_b2b_role', 'ps_b2b_login'
+exec sp_addrolemember 'sakrut_test_role', 'sakrut_test_login'
 
-grant create table, create proc, create view to ps_b2b_role
+grant create table, create proc, create view to sakrut_test_role
